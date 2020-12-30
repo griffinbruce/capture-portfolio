@@ -7,6 +7,9 @@ import home2 from '../img/home2.png';
 //Styles
 import { StyleAbout, StyleDescription, StyleImage } from '../styles';
 import styled from 'styled-components';
+//Animation
+import { scrollReveal } from '../animation';
+import { useScroll } from './useScroll';
 
 //Array of Card Info
 const cards = [
@@ -17,8 +20,9 @@ const cards = [
 ]
 
 const ServicesSection = () => {
+    const [element, controls] = useScroll();
     return (
-        <Services>
+        <Services variants={scrollReveal} animate={controls} initial='hidden' ref={element}>
             <StyleDescription>
                 <h2>High <span>quality</span> services</h2>
                 <Cards>
